@@ -1,0 +1,29 @@
+{
+    "name": "harsh/laravel-slugable",
+    "description": "Create slug for Eloquest models that implements Slugable.",
+    "type": "utility",
+    "require": {
+        "php": "^7.3|^8.0",
+        "illuminate/database": "^8.12",
+        "illuminate/events": "^8.12"
+    },
+    "autoload": {
+        "psr-4": {
+            "HarshSlug\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Harshwardhan Sharma",
+            "email": "hw.sharma9@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "extra": {
+            "sort-packages": true
+        }
+    }
+}
