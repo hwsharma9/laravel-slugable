@@ -9,7 +9,7 @@
     },
     "autoload": {
         "psr-4": {
-            "HarshSlug\\": "src/"
+            "Harsh\\Slug\\": "src/"
         }
     },
     "license": "MIT",
