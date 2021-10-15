@@ -28,8 +28,6 @@ trait Slugable
 
     /**
      * Validate that the calling model is correctly setup for cascading soft deletes.
-     *
-     * 
      */
     protected function validateSlugable()
     {
