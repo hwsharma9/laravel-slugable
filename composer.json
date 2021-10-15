@@ -8,10 +8,7 @@
         "illuminate/events": "^8.12"
     },
     "autoload": {
-        "psr-0": {
-            "Harsh\\Slug\\": "src/"
-        },
-        "psr-4": {
+        "psr-4"{
             "Harsh\\Slug\\": "src/"
         }
     },

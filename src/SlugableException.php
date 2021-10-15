@@ -1,6 +1,6 @@
 <?php
 
-namespace harsh\Database\Support;
+namespace Harsh\Slug;
 
 use Exception;
 

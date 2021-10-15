@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Traits;
+namespace Harsh\Slug;
 
 use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
