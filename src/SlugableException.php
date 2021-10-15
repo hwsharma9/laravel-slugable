@@ -4,7 +4,7 @@ namespace Harsh\Slug;
 
 use Exception;
 
-class CascadeSoftDeleteException extends Exception
+class SlugableException extends Exception
 {
     
 }
