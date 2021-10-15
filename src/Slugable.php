@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 
 trait Slugable
 {
+    public static $errors;
     /**
      * Boot the trait.
      *
@@ -20,7 +21,9 @@ trait Slugable
     protected static function bootSlugable()
     {
         static::saving(function ($model) {
-            $model->validateSlugable();
+            if (! $model->validateSlugableFieldsExists()) {
+                throw SlugableException::slugFieldNotFound(self::$error);
+            }
 
             $model->runSlugable();
         });
@@ -29,8 +32,27 @@ trait Slugable
     /**
      * Validate that the calling model is correctly setup for cascading soft deletes.
      */
-    protected function validateSlugable()
+    protected function validateSlugableFieldsExists()
     {
+        $fillable = $model->fillable();
+        $slugables = $this->slugable;
+        if ($slugables) {
+            $error_message = "";
+            foreach ($slugables as $slug_key => $slug_value) {
+                if (in_array($slug_key, $fillable)) {
+                    $error_message = get_called_class() . " fillables does not contain " . $slug_key . "!";
+                    break 1;
+                }
+                if (in_array($slug_value, $fillable)) {
+                    $error_message = $slug_key . " key not exist in fillables!";
+                    break 1;
+                }
+            }
+            if ($error_message) {
+                self::$error = $error_message;
+                return false;
+            }
+        }
         return true;
     }
 
@@ -44,7 +66,6 @@ trait Slugable
         $slugables = $this->slugable;
         foreach ($slugables as $slug_to => $slug_by) {
             $this->{$slug_to} = $this->generateSlug($this->{$slug_by});
-            info($this->{$slug_to});
         }
     }
 
