@@ -1,7 +1,7 @@
 {
     "name": "harsh/laravel-slugable",
     "description": "Create slug for Eloquest models that implements Slugable.",
-    "type": "utility",
+    "type": "project",
     "require": {
         "php": "^7.3|^8.0",
         "illuminate/database": "^8.12",
